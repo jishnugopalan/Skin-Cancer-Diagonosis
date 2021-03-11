@@ -17,8 +17,8 @@ This web application requires [Node.js](https://nodejs.org/) v14+ to run.
 clone the  repo and install the dependencies:
 
 ```sh
-git clone
-cd 
+git clone https://github.com/jishnugopalan/Skin-Cancer-Diagonosis.git
+cd Skin-Cancer-Diagonosis
 npm i
 ```
 
@@ -30,6 +30,7 @@ npm start
 View the website at: http://localhost:3000
 
 Use test data to test the web app
+https://drive.google.com/drive/folders/1EnzX-NbBuecVYewOkcwGZOobMWjRFvcM?usp=sharing
 
 
 
