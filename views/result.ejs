@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin-Cancer-Diagnosis</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark ">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Skin-Cancer-Diagnosis</span>
+        </div>
+    </nav>
+    <div class="container-fluid " style="margin-top: 5px;">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <canvas id="chart" width="400" height="400"
+                    style="min-height: 224px; min-height: 224px; max-width: 400px; max-height: 400px;"></canvas>
+
+            </div>
+            <div class="col-4"></div>
+           
+        </div>
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"
+            integrity="sha256-nZaxPHA2uAaquixjSDX19TmIlbRNCOrf5HO1oHl5p70=" crossorigin="anonymous"></script>
+        <script>
+
+            var mychart = document.getElementById("chart").getContext("2d");
+
+            new Chart(mychart, {
+                type: 'bar',
+                data: {
+                    labels: [<% for(const key in p) { %>
+                        "<%= key %>",
+                            <% } %>],
+            datasets: [{
+                label: 'Prediction Magnitude',
+                data: [
+                                <%  for(const key in p){ %>
+            "<%= p[key] %>",
+                                <% } %>
+                            ],
+                backgroundColor: 'rgba(151,187,205,1)',
+                    borderColor: 'rgba(151,187,205,10)',
+                        pointBackgroundColor: 'rgba(151,187,205,1)'
+                    }]
+                },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 0.1
+                        }
+                    }]
+                }
+            }
+                });
+        </script>
+        <div class="row" id='result' name="result">
+            <% v=[]; for(const key in p){ v.push(p[key]) } v.sort((i,j)=>j-i);
+
+                prediction="";
+                for(const key in p) {
+                if(p[key]==v[0]){
+                prediction=key;
+                break;
+                }
+                }
+                console.log(v); %>
+
+                <p> Prediction: <%=prediction %> </p>
+        </div>
+        <a class="btn btn-success" href="/">Test Again</a>
+    </div>
+</body>
+
+</html>
