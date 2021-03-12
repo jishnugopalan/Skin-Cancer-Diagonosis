@@ -24,21 +24,16 @@
     </nav>
     <div class="container-fluid " style="margin-top: 5px;">
         <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <canvas id="chart" width="400" height="400"
-                    style="min-height: 224px; min-height: 224px; max-width: 400px; max-height: 400px;"></canvas>
-
-            </div>
-            <div class="col-4"></div>
-           
+            <div class="col-lg-4 col-md-3 col-sm-0"></div> 
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <canvas id="chart" width="400" height="400" style="min-height: 224px; min-height: 224px; max-width: 400px; max-height: 400px;"></canvas>
+            </div> 
+            <div class="col-lg-4 col-md-3 col-sm-0"></div>
         </div>
 
 
 
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"
-            integrity="sha256-nZaxPHA2uAaquixjSDX19TmIlbRNCOrf5HO1oHl5p70=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha256-nZaxPHA2uAaquixjSDX19TmIlbRNCOrf5HO1oHl5p70=" crossorigin="anonymous"></script>
         <script>
 
             var mychart = document.getElementById("chart").getContext("2d");
@@ -74,6 +69,8 @@
                 });
         </script>
         <div class="row" id='result' name="result">
+            <div class="col-lg-4 col-md-3 col-sm-0"></div>
+            <div class="col-lg-4 col-md-6 col-sm-0">
             <% v=[]; for(const key in p){ v.push(p[key]) } v.sort((i,j)=>j-i);
 
                 prediction="";
@@ -85,9 +82,18 @@
                 }
                 console.log(v); %>
 
-                <p> Prediction: <%=prediction %> </p>
+                <p style="margin-left: 17%;"> Prediction: <%=prediction %> </p>
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-0"></div>
         </div>
-        <a class="btn btn-success" href="/">Test Again</a>
+        <div class="row">
+            <div class="col-lg-4 col-md-3 col-sm-0"></div>
+            <div class="col-lg-4 col-md-6 col-sm-0">
+                <span style="margin-left: 35%;"><a class="btn btn-success" href="/">Test Again</a></span>
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-0"></div>
+        </div>
+        
     </div>
 </body>
 
